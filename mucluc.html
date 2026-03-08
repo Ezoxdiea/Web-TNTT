@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Thanh Niên Tiên Tiến</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#f3f5f9;
+}
+
+/* HEADER */
+
+header{
+background:white;
+padding:15px 60px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+border-bottom:1px solid #eee;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.logo .icon{
+width:35px;
+height:35px;
+background:red;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+}
+
+.logo h2{
+font-size:18px;
+font-weight:bold;
+}
+
+.logo span{
+font-size:11px;
+color:#888;
+}
+
+nav{
+display:flex;
+gap:40px;
+font-weight:600;
+}
+
+nav a{
+text-decoration:none;
+color:#444;
+font-size:15px;
+}
+
+nav a:hover{
+color:#0a58ca;
+}
+
+.search{
+font-size:18px;
+color:#555;
+}
+
+/* BLUE TITLE */
+
+.banner{
+background:linear-gradient(180deg,#2f5fbf,#234aa3);
+color:white;
+text-align:center;
+padding:45px 20px;
+}
+
+.banner h1{
+font-size:32px;
+margin-bottom:8px;
+}
+
+.banner p{
+opacity:.9;
+}
+
+/* CARDS */
+
+.categories{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
+margin-top:-35px;
+padding:40px;
+}
+
+.card{
+background:white;
+padding:22px;
+border-radius:10px;
+box-shadow:0 6px 18px rgba(0,0,0,0.08);
+}
+
+.card h3{
+font-size:17px;
+margin-bottom:12px;
+display:flex;
+align-items:center;
+gap:8px;
+}
+
+.card ul{
+list-style:none;
+}
+
+.card li{
+padding:6px 0;
+font-size:14px;
+color:#555;
+}
+
+/* CARD COLORS */
+
+.red{border-top:4px solid #ff4d4f;}
+.blue{border-top:4px solid #4096ff;}
+.yellow{border-top:4px solid #fadb14;}
+.green{border-top:4px solid #52c41a;}
+
+
+/* BOTTOM BOX */
+
+.bottom{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:25px;
+padding:20px 40px 50px;
+}
+
+.box{
+background:white;
+border-radius:10px;
+padding:20px;
+box-shadow:0 6px 18px rgba(0,0,0,0.08);
+}
+
+.box h3{
+margin-bottom:15px;
+font-size:16px;
+}
+
+.support-list{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+font-size:14px;
+color:#555;
+}
+
+.subscribe p{
+font-size:14px;
+color:#555;
+margin-bottom:10px;
+}
+
+.form{
+display:flex;
+}
+
+.form input{
+flex:1;
+padding:10px;
+border:1px solid #ddd;
+border-radius:5px 0 0 5px;
+}
+
+.form button{
+background:#1e6ad6;
+color:white;
+border:none;
+padding:10px 18px;
+border-radius:0 5px 5px 0;
+cursor:pointer;
+}
+
+.form button:hover{
+background:#1453b2;
+}
+
+/* FOOTER */
+
+footer{
+background:#1f2c3c;
+color:white;
+text-align:center;
+padding:35px 20px;
+margin-top:20px;
+}
+
+footer h2{
+font-size:20px;
+margin-bottom:12px;
+}
+
+footer a{
+color:#bfc7d5;
+margin:0 12px;
+text-decoration:none;
+font-size:14px;
+}
+
+footer a:hover{
+color:white;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+
+<div class="icon">
+<i class="fa fa-star"></i>
+</div>
+
+<div>
+<h2>THANH NIÊN TIÊN TIẾN</h2>
+<span>CỔNG THÔNG TIN ĐOÀN - HỘI</span>
+</div>
+
+</div>
+
+<nav>
+<a href="#">GIỚI TRẺ</a>
+<a href="#">ĐOÀN - HỘI</a>
+<a href="#">GƯƠNG SÁNG</a>
+<a href="#">KỸ NĂNG</a>
+</nav>
+
+<div class="search">
+<i class="fa fa-search"></i>
+</div>
+
+</header>
+
+
+<section class="banner">
+
+<h1>MỤC LỤC HỆ THỐNG</h1>
+<p>Tìm kiếm nhanh chóng các chuyên mục và nội dung trên website</p>
+
+</section>
+
+
+<section class="categories">
+
+<div class="card red">
+<h3><i class="fa fa-users"></i> Giới trẻ</h3>
+<ul>
+<li>Xu hướng Gen Z</li>
+<li>Lối sống xanh</li>
+<li>Sức khỏe tinh thần</li>
+<li>Thời trang & Văn hóa</li>
+</ul>
+</div>
+
+<div class="card blue">
+<h3><i class="fa fa-flag"></i> Đoàn - Hội</h3>
+<ul>
+<li>Tin tức Đại hội</li>
+<li>Văn bản - Chỉ đạo</li>
+<li>Mùa hè xanh</li>
+<li>Công tác Đội</li>
+</ul>
+</div>
+
+<div class="card yellow">
+<h3><i class="fa fa-medal"></i> Gương sáng</h3>
+<ul>
+<li>Gương mặt trẻ tiêu biểu</li>
+<li>Khởi nghiệp sáng tạo</li>
+<li>Nghị lực vượt khó</li>
+<li>Chuyện tử tế</li>
+</ul>
+</div>
+
+<div class="card green">
+<h3><i class="fa fa-lightbulb"></i> Kỹ năng</h3>
+<ul>
+<li>Kỹ năng mềm</li>
+<li>Học tiếng Anh</li>
+<li>Tư duy sáng tạo</li>
+<li>Hướng nghiệp</li>
+</ul>
+</div>
+
+</section>
+
+
+<section class="bottom">
+
+<div class="box">
+
+<h3>Liên kết hỗ trợ</h3>
+
+<div class="support-list">
+<div>Giới thiệu tòa soạn</div>
+<div>Liên hệ tòa soạn</div>
+<div>Quảng cáo & Hợp tác</div>
+<div>Chính sách bảo mật</div>
+</div>
+
+</div>
+
+
+<div class="box subscribe">
+
+<h3>Đăng ký nhận tin</h3>
+
+<p>Nhận những tin tức mới nhất về phong trào thanh niên qua Email.</p>
+
+<div class="form">
+<input type="text" placeholder="Email của bạn...">
+<button>Đăng ký</button>
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<h2>THANH NIÊN TIÊN TIẾN</h2>
+
+<a href="#">Về chúng tôi</a>
+<a href="#">Quy định sử dụng</a>
+<a href="#">Sơ đồ trang</a>
+
+</footer>
+
+</body>
+</html>
