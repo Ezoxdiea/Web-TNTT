@@ -1,0 +1,110 @@
+body{
+    font-family: Arial;
+    background:#e5e5e5;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.login-box{
+    background:white;
+    width:360px;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+.logo{
+    width:60px;
+    height:60px;
+    background:red;
+    color:white;
+    font-size:30px;
+    text-align:center;
+    line-height:60px;
+    border-radius:12px;
+    margin:auto;
+}
+
+h2{
+    text-align:center;
+    margin-top:15px;
+}
+
+p{
+    text-align:center;
+    color:gray;
+    font-size:14px;
+}
+
+label{
+    font-weight:bold;
+    font-size:13px;
+}
+
+.input-box{
+    margin-top:10px;
+}
+
+input[type=text],
+input[type=password]{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+.row{
+    display:flex;
+    justify-content:space-between;
+    margin-top:10px;
+    font-size:13px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin-top:15px;
+    border:none;
+    background:#1565c0;
+    color:white;
+    font-weight:bold;
+    border-radius:8px;
+    font-size:16px;
+}
+
+button:hover{
+    background:#0d47a1;
+}
+
+.divider{
+    text-align:center;
+    margin:20px 0;
+    color:gray;
+    font-size:13px;
+}
+
+.social{
+    display:flex;
+    justify-content:space-between;
+}
+
+.social button{
+    width:48%;
+    background:white;
+    border:1px solid #ccc;
+    color:black;
+}
+
+.signup{
+    text-align:center;
+    margin-top:15px;
+    font-size:14px;
+}
+
+.signup a{
+    color:#1565c0;
+    text-decoration:none;
+}
