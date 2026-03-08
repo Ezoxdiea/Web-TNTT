@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh Niên Tiên Tiến - Cổng thông tin Đoàn - Hội</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ================= CSS CƠ BẢN ================= */
+        :root {
+            --primary-blue: #0b5ed7;
+            --dark-blue: #1a2533;
+            --text-main: #333333;
+            --text-gray: #777777;
+            --bg-light: #f4f6f9;
+            --bg-white: #ffffff;
+            --border-color: #e5e5e5;
+            
+            /* Tag colors */
+            --tag-red: #dc3545;
+            --tag-green: #198754;
+            --tag-blue: #0d6efd;
+            --tag-orange: #fd7e14;
+            --tag-purple: #6f42c1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* ================= HEADER ================= */
+        header {
+            background-color: var(--bg-white);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            font-size: 24px;
+            color: var(--tag-red);
+        }
+
+        .logo-text h1 {
+            font-size: 20px;
+            color: var(--dark-blue);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .logo-text p {
+            font-size: 11px;
+            color: var(--text-gray);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            color: var(--text-main);
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .search-icon {
+            font-size: 18px;
+            cursor: pointer;
+            color: var(--text-main);
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background-color: var(--bg-white);
+            padding: 10px 0;
+            font-size: 13px;
+            color: var(--primary-blue);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+        .breadcrumb span { color: var(--text-gray); }
+
+        /* ================= MAIN LAYOUT ================= */
+        .page-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .page-header-icon {
+            background-color: var(--primary-blue);
+            color: white;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-size: 24px;
+        }
+
+        .page-header-text h2 {
+            font-size: 22px;
+            text-transform: uppercase;
+            color: var(--dark-blue);
+        }
+
+        .page-header-text p {
+            font-size: 14px;
+            color: var(--text-gray);
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr; /* Chia tỉ lệ cột trái/phải */
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        /* ================= CỘT TRÁI (BÀI VIẾT) ================= */
+        .hero-post {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            height: 400px;
+        }
+
+        .hero-post img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            padding: 30px;
+            color: white;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .tag.red { background-color: var(--tag-red); }
+        .tag.green { background-color: var(--tag-green); }
+        .tag.blue { background-color: var(--tag-blue); }
+        .tag.orange { background-color: var(--tag-orange); }
+        .tag.purple { background-color: var(--tag-purple); }
+
+        .hero-content h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .hero-content p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .section-title {
+            font-size: 18px;
+            color: var(--dark-blue);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .post-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .post-card {
+            background: var(--bg-white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .post-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .post-card .tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .post-card-body {
+            padding: 15px;
+        }
+
+        .post-card-body h4 {
+            font-size: 15px;
+            color: var(--text-main);
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .post-meta {
+            font-size: 12px;
+            color: var(--text-gray);
+            display: flex;
+            gap: 15px;
+        }
+
+        .post-meta i {
+            margin-right: 5px;
+        }
+
+        /* ================= CỘT PHẢI (SIDEBAR) ================= */
+        .widget {
+            background: var(--bg-white);
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .widget-header {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 12px 15px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .doc-list {
+            padding: 15px;
+        }
+
+        .doc-item {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .doc-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .doc-item i {
+            color: var(--tag-red);
+            font-size: 16px;
+            margin-top: 3px;
+        }
+
+        .doc-item-content h5 {
+            font-size: 13px;
+            color: var(--text-main);
+            margin-bottom: 5px;
+        }
+
+        .doc-item-content span {
+            font-size: 11px;
+            color: var(--text-gray);
+        }
+
+        .view-all {
+            display: block;
+            text-align: center;
+            font-size: 12px;
+            color: var(--primary-blue);
+            padding: 10px;
+            font-weight: 600;
+            background-color: #f8f9fa;
+        }
+
+        .widget-title-simple {
+            padding: 15px 15px 0;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-gray);
+        }
+
+        .event-list {
+            padding: 15px;
+        }
+
+        .event-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+
+        .event-date {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .event-date .month {
+            font-size: 10px;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            display: block;
+        }
+
+        .event-date .day {
+            font-size: 20px;
+            color: var(--text-main);
+        }
+
+        .event-info h5 {
+            font-size: 13px;
+            margin-bottom: 3px;
+        }
+
+        .event-info span {
+            font-size: 11px;
+            color: var(--text-gray);
+        }
+
+        .banner-widget {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 350px;
+        }
+
+        .banner-widget img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .banner-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--primary-blue);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        /* ================= FOOTER ================= */
+        footer {
+            background-color: var(--dark-blue);
+            color: white;
+            text-align: center;
+            padding: 40px 15px;
+        }
+
+        footer h3 {
+            font-size: 18px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        footer p {
+            font-size: 12px;
+            color: #a0aec0;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Hide menu on mobile for simplicity */
+            .post-grid { grid-template-columns: 1fr; }
+            .hero-post { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fa-solid fa-star"></i>
+                <div class="logo-text">
+                    <h1>THANH NIÊN TIÊN TIẾN</h1>
+                    <p>CỔNG THÔNG TIN ĐOÀN - HỘI</p>
+                </div>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#">GIỚI TRẺ</a></li>
+                    <li><a href="#">ĐOÀN - HỘI</a></li>
+                    <li><a href="#">GƯƠNG SÁNG</a></li>
+                    <li><a href="#">KỸ NĂNG</a></li>
+                </ul>
+            </nav>
+            <div class="search-icon" onclick="toggleSearch()">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <div class="container">
+            <i class="fa-solid fa-house"></i> Trang chủ <span>/ Công tác Đoàn - Hội</span>
+        </div>
+    </div>
+
+    <main class="container">
+        
+        <div class="page-header">
+            <div class="page-header-icon">
+                <i class="fa-solid fa-flag"></i>
+            </div>
+            <div class="page-header-text">
+                <h2>CÔNG TÁC ĐOÀN & PHONG TRÀO</h2>
+                <p>Tin tức hoạt động, chỉ đạo và phong trào thanh niên cả nước.</p>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="left-column">
+                
+                <div class="hero-post">
+                    <img src="https://picsum.photos/800/400?random=1" alt="Đại hội Đoàn">
+                    <div class="hero-content">
+                        <span class="tag red">SỰ KIỆN NỔI BẬT</span>
+                        <h3>Khai mạc Đại hội đại biểu toàn quốc Đoàn TNCS Hồ Chí Minh lần thứ XIII</h3>
+                        <p>Với khẩu hiệu hành động "Khát vọng - Tiên phong - Đoàn kết - Bản lĩnh - Sáng tạo", Đại hội là sự kiện chính trị quan trọng của tuổi trẻ Việt Nam...</p>
+                    </div>
+                </div>
+
+                <h3 class="section-title">HOẠT ĐỘNG CƠ SỞ</h3>
+                
+                <div class="post-grid">
+                    <div class="post-card">
+                        <img src="https://picsum.photos/400/250?random=2" alt="Mùa hè xanh">
+                        <span class="tag green">Mùa Hè Xanh</span>
+                        <div class="post-card-body">
+                            <h4>Ra quân chiến dịch Mùa hè xanh 2026: "Đi để trưởng thành"</h4>
+                            <div class="post-meta">
+                                <span><i class="fa-regular fa-calendar"></i> 27/01/2026</span>
+                                <span><i class="fa-solid fa-location-dot"></i> TP.HCM</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="post-card">
+                        <img src="https://picsum.photos/400/250?random=3" alt="Sinh viên 5 tốt">
+                        <span class="tag blue">Sinh Viên 5 Tốt</span>
+                        <div class="post-card-body">
+                            <h4>Lễ tuyên dương "Sinh viên 5 tốt" cấp Trung ương năm học 2025-2026</h4>
+                            <div class="post-meta">
+                                <span><i class="fa-regular fa-calendar"></i> 26/01/2026</span>
+                                <span><i class="fa-solid fa-location-dot"></i> Hà Nội</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="post-card">
+                        <img src="https://picsum.photos/400/250?random=4" alt="Công tác Đội">
+                        <span class="tag orange">Công tác Đội</span>
+                        <div class="post-card-body">
+                            <h4>Tập huấn kỹ năng nghi thức Đội cho 200 Tổng phụ trách Đội</h4>
+                            <div class="post-meta">
+                                <span><i class="fa-regular fa-calendar"></i> 25/01/2026</span>
+                                <span><i class="fa-solid fa-location-dot"></i> Đà Nẵng</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="post-card">
+                        <img src="https://picsum.photos/400/250?random=5" alt="Đối ngoại">
+                        <span class="tag purple">Đối ngoại</span>
+                        <div class="post-card-body">
+                            <h4>Giao lưu hữu nghị thanh niên Việt Nam - Lào - Campuchia</h4>
+                            <div class="post-meta">
+                                <span><i class="fa-regular fa-calendar"></i> 24/01/2026</span>
+                                <span><i class="fa-solid fa-location-dot"></i> TP.HCM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-column">
+                
+                <div class="widget">
+                    <div class="widget-header">
+                        <span>VĂN BẢN - CHỈ ĐẠO</span>
+                        <i class="fa-solid fa-file-lines"></i>
+                    </div>
+                    <div class="doc-list">
+                        <div class="doc-item">
+                            <i class="fa-solid fa-file-pdf"></i>
+                            <div class="doc-item-content">
+                                <h5>Hướng dẫn tổ chức Đại hội Đoàn các cấp nhiệm kỳ 2026-2031</h5>
+                                <span>Số: 12-HD/TWĐTN - 20/01/2026</span>
+                            </div>
+                        </div>
+                        <div class="doc-item">
+                            <i class="fa-solid fa-file-word"></i>
+                            <div class="doc-item-content">
+                                <h5>Kế hoạch Tháng Thanh niên năm 2026</h5>
+                                <span>Số: 05-KH/TWĐTN - 15/01/2026</span>
+                            </div>
+                        </div>
+                        <div class="doc-item">
+                            <i class="fa-solid fa-file-pdf"></i>
+                            <div class="doc-item-content">
+                                <h5>Quyết định ban hành Điều lệ Đoàn (Sửa đổi)</h5>
+                                <span>Số: 01-QĐ/TWĐTN - 05/01/2026</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="view-all">Xem tất cả văn bản >></a>
+                </div>
+
+                <div class="widget">
+                    <div class="widget-title-simple">SỰ KIỆN SẮP TỚI</div>
+                    <div class="event-list">
+                        <div class="event-item">
+                            <div class="event-date">
+                                <span class="month">Tháng 3</span>
+                                <span class="day">26</span>
+                            </div>
+                            <div class="event-info">
+                                <h5>Kỷ niệm thành lập Đoàn</h5>
+                                <span>Toàn quốc</span>
+                            </div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-date">
+                                <span class="month">Tháng 5</span>
+                                <span class="day">19</span>
+                            </div>
+                            <div class="event-info">
+                                <h5>Sinh nhật Bác Hồ</h5>
+                                <span>Lăng Chủ tịch</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="banner-widget">
+                    <img src="https://picsum.photos/300/400?random=6" alt="Học tập và làm theo lời Bác">
+                    <div class="banner-text">
+                        HỌC TẬP VÀ LÀM THEO LỜI BÁC
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <h3>THANH NIÊN TIÊN TIẾN</h3>
+            <p>Cơ quan ngôn luận của thế hệ trẻ Việt Nam</p>
+        </div>
+    </footer>
+
+    <script>
+        // JS đơn giản để xử lý sự kiện click vào nút tìm kiếm
+        function toggleSearch() {
+            alert("Chức năng tìm kiếm đang được phát triển!");
+        }
+        
+        // Thêm các hiệu ứng hover nhẹ cho các card bài viết
+        const cards = document.querySelectorAll('.post-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-5px)';
+                card.style.transition = 'transform 0.3s ease';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
